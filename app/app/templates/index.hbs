@@ -3,7 +3,7 @@
   {{#each model as |product|}}
     <div class="col-xs-3">
       {{#link-to 'product' product}}
-        <img src=product.preview class="product--image">
+        <img src={{product.preview}} class="product--image">
         <h3>{{product.name}}</h3>
       {{/link-to}}
       <p>{{product.blurb}}</p>
