@@ -26,8 +26,11 @@ defmodule Api.ProductController do
     end
   end
 
-  def show(conn, %{"id" => id}) do
-    product = Repo.get!(Product, id)
+  def show(conn, %{"id" => slug}) do
+    query = from p in Product,
+      where: p.slug == ^slug,
+      select: p
+    product = Repo.one!(query)
     render(conn, "show.json", product: product)
   end
 
