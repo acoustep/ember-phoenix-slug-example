@@ -11,6 +11,7 @@ defmodule Api.Router do
 
   pipeline :api do
     plug :accepts, ["json"]
+    plug Corsica, origins: ["localhost:4200"]
   end
 
   scope "/", Api do
