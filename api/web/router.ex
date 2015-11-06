@@ -19,6 +19,10 @@ defmodule Api.Router do
     get "/", PageController, :index
   end
 
+  scope "/api", Api do 
+    pipe_through :api
+    resources "/products", ProductController, only: [:index, :show]
+  end 
   # Other scopes may use custom stacks.
   # scope "/api", Api do
   #   pipe_through :api
