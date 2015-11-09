@@ -6,6 +6,6 @@ export default Ember.Route.extend({
     return this.store.find('product', params.product_slug);
   },
   serialize: function(model, params) {
-    return { product_slug: model.get('slug') };
+    return { product_slug: model.get('id') };
   }
 });
